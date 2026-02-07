@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|c:\\users\\jerem\\desktop\\jeremy\\code\\todo app\\todo-app-backend\\todo-app-backend\\controllers\\todoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|solutionrelative:controllers\\todoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|c:\\users\\jerem\\desktop\\jeremy\\code\\todo app\\todo-app-backend\\todo-app-backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|c:\\users\\jerem\\desktop\\jeremy\\code\\todo app\\todo-app-backend\\todo-app-backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|c:\\users\\jerem\\desktop\\jeremy\\code\\todo app\\todo-app-backend\\todo-app-backend\\data\\todocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|solutionrelative:data\\todocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|c:\\users\\jerem\\desktop\\jeremy\\code\\todo app\\todo-app-backend\\todo-app-backend\\models\\todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|solutionrelative:models\\todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|c:\\users\\jerem\\desktop\\jeremy\\code\\todo app\\todo-app-backend\\todo-app-backend\\dtos\\tododtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}|TodoApi.csproj|solutionrelative:dtos\\tododtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABQAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-07T18:54:47.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T18:53:03.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Todo.cs",
+              "DocumentMoniker": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Models\\Todo.cs",
+              "RelativeDocumentMoniker": "Models\\Todo.cs",
+              "ToolTip": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Models\\Todo.cs",
+              "RelativeToolTip": "Models\\Todo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T18:35:10.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TodoDtos.cs",
+              "DocumentMoniker": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\DTOs\\TodoDtos.cs",
+              "RelativeDocumentMoniker": "DTOs\\TodoDtos.cs",
+              "ToolTip": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\DTOs\\TodoDtos.cs",
+              "RelativeToolTip": "DTOs\\TodoDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T18:35:01.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TodoContext.cs",
+              "DocumentMoniker": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Data\\TodoContext.cs",
+              "RelativeDocumentMoniker": "Data\\TodoContext.cs",
+              "ToolTip": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Data\\TodoContext.cs",
+              "RelativeToolTip": "Data\\TodoContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T18:34:51.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TodosController.cs",
+              "DocumentMoniker": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Controllers\\TodosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TodosController.cs",
+              "ToolTip": "C:\\Users\\Jerem\\Desktop\\Jeremy\\Code\\Todo App\\todo-app-backend\\todo-app-backend\\Controllers\\TodosController.cs",
+              "RelativeToolTip": "Controllers\\TodosController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAlwB4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T18:34:14.913Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

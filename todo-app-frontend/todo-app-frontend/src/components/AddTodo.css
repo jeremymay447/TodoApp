@@ -1,0 +1,59 @@
+.add-todo {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.todo-input::placeholder {
+  color: #aaa;
+}
+
+.btn-add {
+  background: #667eea;
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-add:hover {
+  background: #5568d3;
+}
+
+.description-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.description-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.description-input::placeholder {
+  color: #aaa;
+}
