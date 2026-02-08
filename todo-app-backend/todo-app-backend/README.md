@@ -1,6 +1,6 @@
 # Todo API - .NET Backend
 
-A RESTful API for the Todo application built with ASP.NET Core 8 and Entity Framework Core with SQLite.
+A RESTful API for the Todo application built with ASP.NET Core 8 and Entity Framework Core with SQLite. Created using Claude.
 
 ## Features
 
@@ -138,16 +138,6 @@ You can override settings using environment variables or `appsettings.Developmen
   }
 }
 ```
-
-## Future Enhancements
-
-- [ ] Add authentication/authorization
-- [ ] Implement pagination for large lists
-- [ ] Add filtering and sorting
-- [ ] Add user accounts and multi-tenancy
-- [ ] Switch to PostgreSQL for production
-- [ ] Add caching with Redis
-- [ ] Implement background tasks for notifications
 
 ## License
 

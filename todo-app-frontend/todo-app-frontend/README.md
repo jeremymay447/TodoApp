@@ -1,6 +1,6 @@
 # Todo App Frontend
 
-A clean, modern todo application built with React. Features include adding, editing, deleting todos, filtering by status, and **cloud sync with .NET backend API**.
+A clean, modern todo application built with React. Features include adding, editing, deleting todos, filtering by status, and **cloud sync with .NET backend API**. Created using Claude.
 
 ## Features
 
@@ -143,20 +143,6 @@ Each todo has:
 - `PUT /api/todos/{id}` - Update todo
 - `PATCH /api/todos/{id}/toggle` - Toggle completion
 - `DELETE /api/todos/{id}` - Delete todo
-
-## Future Enhancements
-
-Want to take this further? Here are some ideas:
-
-- [ ] Add user authentication
-- [ ] Add due dates and reminders
-- [ ] Categories/tags for todos
-- [ ] Dark mode toggle
-- [ ] Drag-and-drop reordering
-- [ ] Search functionality
-- [ ] Real-time updates with SignalR
-- [ ] Offline mode with sync
-- [ ] Import/export todos
 
 ## Troubleshooting
 
