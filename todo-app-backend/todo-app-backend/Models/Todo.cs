@@ -8,5 +8,7 @@ namespace TodoApi.Models
         public bool Completed { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public int UserId { get; set; }
+        public virtual User User { get; set; } = null!;
     }
 }

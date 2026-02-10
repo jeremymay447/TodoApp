@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using TodoApi.Data;
 using TodoApi.DTOs;
 using TodoApi.Models;
@@ -8,6 +10,7 @@ namespace TodoApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class TodosController : ControllerBase
     {
         private readonly TodoContext _context;
@@ -23,9 +26,11 @@ namespace TodoApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoResponseDto>>> GetTodos()
         {
+            var userId = GetCurrentUserId();
+
             var todos = await _context.Todos
+                .Where(t => t.UserId == userId)
                 .OrderByDescending(t => t.CreatedAt)
-                .Where(t => t.CreatedAt.DayOfYear == DateTime.Now.DayOfYear)
                 .ToListAsync();
 
             var response = todos.Select(t => MapToDto(t));
@@ -36,11 +41,17 @@ namespace TodoApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoResponseDto>> GetTodo(int id)
         {
+            var userId = GetCurrentUserId();
             var todo = await _context.Todos.FindAsync(id);
 
             if (todo == null)
             {
                 return NotFound(new { message = $"Todo with id {id} not found" });
+            }
+
+            if (todo.UserId != userId)
+            {
+                return Forbid(); // User doesn't own this todo
             }
 
             return Ok(MapToDto(todo));
@@ -50,12 +61,16 @@ namespace TodoApi.Controllers
         [HttpPost]
         public async Task<ActionResult<TodoResponseDto>> CreateTodo(CreateTodoDto createDto)
         {
+            var userId = GetCurrentUserId();
+
             var todo = new Todo
             {
                 Title = createDto.Title,
                 Description = createDto.Description,
                 Completed = false,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                UserId = userId
+                
             };
 
             _context.Todos.Add(todo);
@@ -75,10 +90,17 @@ namespace TodoApi.Controllers
         public async Task<IActionResult> UpdateTodo(int id, UpdateTodoDto updateDto)
         {
             var todo = await _context.Todos.FindAsync(id);
+            var userId = GetCurrentUserId();
+
 
             if (todo == null)
             {
                 return NotFound(new { message = $"Todo with id {id} not found" });
+            }
+
+            if (todo.UserId != userId)
+            {
+                return Forbid(); // User doesn't own this todo
             }
 
             // Update only provided fields
@@ -115,10 +137,16 @@ namespace TodoApi.Controllers
         public async Task<IActionResult> ToggleTodo(int id)
         {
             var todo = await _context.Todos.FindAsync(id);
+            var userId = GetCurrentUserId();
 
             if (todo == null)
             {
                 return NotFound(new { message = $"Todo with id {id} not found" });
+            }
+
+            if (todo.UserId != userId)
+            {
+                return Forbid(); // User doesn't own this todo
             }
 
             todo.Completed = !todo.Completed;
@@ -135,10 +163,16 @@ namespace TodoApi.Controllers
         public async Task<IActionResult> DeleteTodo(int id)
         {
             var todo = await _context.Todos.FindAsync(id);
+            var userId = GetCurrentUserId();
 
             if (todo == null)
             {
                 return NotFound(new { message = $"Todo with id {id} not found" });
+            }
+
+            if (todo.UserId != userId)
+            {
+                return Forbid(); // User doesn't own this todo
             }
 
             _context.Todos.Remove(todo);
@@ -152,6 +186,12 @@ namespace TodoApi.Controllers
         private bool TodoExists(int id)
         {
             return _context.Todos.Any(e => e.Id == id);
+        }
+
+        private int GetCurrentUserId()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return int.Parse(userIdClaim!);
         }
 
         private static TodoResponseDto MapToDto(Todo todo)
