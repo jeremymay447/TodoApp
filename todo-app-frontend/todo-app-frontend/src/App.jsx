@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
+import Login from './components/Login';
+import Register from './components/Register';
 import FilterBar from './components/FilterBar';
 import todoApi from './services/todoApi';
 import './App.css';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
+  const [user, setUser] = useState(null);
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all'); // 'all', 'active', 'completed'
   const [loading, setLoading] = useState(true);
@@ -13,8 +18,36 @@ function App() {
 
   // Load todos from API on mount
   useEffect(() => {
-    loadTodos();
+    if (todoApi.isAuthenticated()) {
+      setIsAuthenticated(true);
+      setUser(todoApi.getCurrentUser());
+      loadTodos();
+    } else {
+      setLoading(false);
+    }
   }, []);
+
+const handleLogin = async (username, password) => {
+  const data = await todoApi.login(username, password);
+  setIsAuthenticated(true);
+  setUser({ username: data.username, email: data.email });
+  await loadTodos();
+};
+
+const handleRegister = async (username, email, password) => {
+  const data = await todoApi.register(username, email, password);
+  setIsAuthenticated(true);
+  setUser({ username: data.username, email: data.email });
+  await loadTodos();
+};
+
+const handleLogout = () => {
+  todoApi.logout();
+  setIsAuthenticated(false);
+  setUser(null);
+  setTodos([]);
+  setError(null);
+};
 
   const loadTodos = async () => {
     try {
@@ -37,6 +70,9 @@ function App() {
     } catch (err) {
       setError('Failed to create todo');
       console.error('Error creating todo:', err);
+      if (err.message.includes('Session expired')) {
+        handleLogout();
+      }
     }
   };
 
@@ -49,6 +85,9 @@ function App() {
     } catch (err) {
       setError('Failed to toggle todo');
       console.error('Error toggling todo:', err);
+      if (err.message.includes('Session expired')) {
+        handleLogout();
+      }
     }
   };
 
@@ -59,6 +98,9 @@ function App() {
     } catch (err) {
       setError('Failed to delete todo');
       console.error('Error deleting todo:', err);
+      if (err.message.includes('Session expired')) {
+        handleLogout();
+      }
     }
   };
 
@@ -71,6 +113,9 @@ function App() {
     } catch (err) {
       setError('Failed to update todo');
       console.error('Error updating todo:', err);
+      if (err.message.includes('Session expired')) {
+        handleLogout();
+      }
     }
   };
 
@@ -82,6 +127,9 @@ function App() {
     } catch (err) {
       setError('Failed to clear completed todos');
       console.error('Error clearing completed todos:', err);
+      if (err.message.includes('Session expired')) {
+        handleLogout();
+      }
     }
   };
 
@@ -94,11 +142,35 @@ function App() {
 
   const activeTodoCount = todos.filter(todo => !todo.completed).length;
 
+  if (!isAuthenticated) {
+  return showRegister ? (
+    <Register
+      onRegister={handleRegister}
+      onSwitchToLogin={() => setShowRegister(false)}
+    />
+  ) : (
+    <Login
+      onLogin={handleLogin}
+      onSwitchToRegister={() => setShowRegister(true)}
+    />
+  );
+}
+
   return (
     <div className="app">
       <header className="app-header">
-        <h1>My Todo List</h1>
-        <p className="subtitle">Stay organized, one task at a time</p>
+        <div className="header-content">
+          <div>
+            <h1>My Todo List</h1>
+            <p className="subtitle">Stay organized, one task at a time</p>
+          </div>
+          <div className="user-info">
+            <span className="welcome-text">👋 {user?.username}</span>
+            <button onClick={handleLogout} className="btn-logout">
+              Logout
+            </button>
+          </div>
+        </div>
       </header>
 
       <main className="app-main">
