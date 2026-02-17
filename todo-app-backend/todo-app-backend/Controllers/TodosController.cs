@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using TodoApi.Data;
 using TodoApi.DTOs;
+using TodoApi.Enums;
 using TodoApi.Models;
 
 namespace TodoApi.Controllers
@@ -69,8 +71,8 @@ namespace TodoApi.Controllers
                 Description = createDto.Description,
                 Completed = false,
                 CreatedAt = DateTime.UtcNow,
-                UserId = userId
-                
+                UserId = userId,
+                Priority = createDto.Priority                
             };
 
             _context.Todos.Add(todo);
@@ -112,6 +114,11 @@ namespace TodoApi.Controllers
 
             if (updateDto.Completed.HasValue)
                 todo.Completed = updateDto.Completed.Value;
+
+            if (updateDto.Priority.HasValue)
+                todo.Priority = updateDto.Priority.Value;
+
+
 
             todo.UpdatedAt = DateTime.UtcNow;
 
@@ -203,7 +210,8 @@ namespace TodoApi.Controllers
                 Description = todo.Description,
                 Completed = todo.Completed,
                 CreatedAt = todo.CreatedAt,
-                UpdatedAt = todo.UpdatedAt
+                UpdatedAt = todo.UpdatedAt,
+                Priority = Enum.GetName(typeof(PriorityEnum), todo.Priority) ?? "low"
             };
         }
     }

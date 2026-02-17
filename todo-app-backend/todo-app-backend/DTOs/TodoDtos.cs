@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using TodoApi.Enums;
 
 namespace TodoApi.DTOs
 {
@@ -10,6 +12,8 @@ namespace TodoApi.DTOs
 
         [StringLength(1000)]
         public string? Description { get; set; }
+        [Range(0, 3)]
+        public int Priority { get; set; } = 0;
     }
 
     public class UpdateTodoDto
@@ -21,6 +25,8 @@ namespace TodoApi.DTOs
         public string? Description { get; set; }
 
         public bool? Completed { get; set; }
+        [Range(0, 3)]
+        public int? Priority { get; set; }
     }
 
     public class TodoResponseDto
@@ -29,6 +35,7 @@ namespace TodoApi.DTOs
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
         public bool Completed { get; set; }
+        public string Priority { get; set; } = PriorityEnum.low.ToString();
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }

@@ -23,6 +23,7 @@ namespace TodoApi.Data
                 entity.Property(e => e.Description).HasMaxLength(1000);
                 entity.Property(e => e.Completed).HasDefaultValue(false);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
+                entity.Property(e => e.Priority).HasDefaultValue(0);
 
                 entity.HasOne(e => e.User)
                      .WithMany(u => u.Todos)

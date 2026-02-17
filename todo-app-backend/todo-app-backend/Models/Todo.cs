@@ -9,6 +9,7 @@ namespace TodoApi.Models
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int UserId { get; set; }
+        public int Priority { get; set; } = 0;
         public virtual User User { get; set; } = null!;
     }
 }
