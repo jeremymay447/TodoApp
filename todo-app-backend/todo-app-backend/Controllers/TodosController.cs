@@ -102,10 +102,10 @@ namespace TodoApi.Controllers
 
             if (todo.UserId != userId)
             {
-                return Forbid(); // User doesn't own this todo
+                return Forbid(); 
             }
 
-            // Update only provided fields
+            
             if (updateDto.Title != null)
                 todo.Title = updateDto.Title;
 
@@ -117,8 +117,6 @@ namespace TodoApi.Controllers
 
             if (updateDto.Priority.HasValue)
                 todo.Priority = updateDto.Priority.Value;
-
-
 
             todo.UpdatedAt = DateTime.UtcNow;
 
@@ -211,7 +209,7 @@ namespace TodoApi.Controllers
                 Completed = todo.Completed,
                 CreatedAt = todo.CreatedAt,
                 UpdatedAt = todo.UpdatedAt,
-                Priority = Enum.GetName(typeof(PriorityEnum), todo.Priority) ?? "low"
+                Priority = todo.Priority
             };
         }
     }
